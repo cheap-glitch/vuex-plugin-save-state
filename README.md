@@ -7,6 +7,7 @@ every mutation, and to have it restored on page load. Features:
  * 📑 define the state properties and their options in a single place
  * 🔧 provide default values & optionally validate the saved data
  * 📦 works with store modules
+ * 🎈 extremely light with zero dependencies
 
 ## Installation
 
