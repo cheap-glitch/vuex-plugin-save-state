@@ -2,8 +2,8 @@
 /**
  * vuex-plugin-save-state
  *
- * A tiny Vuex plugin to automatically  save and restore values in the browser's
- * local storage.
+ * A tiny  Vuex plugin to automatically  save and restore the  store state using
+ * the browser's local storage.
  *
  * Copyright (c) 2020-present, cheap glitch
  * This software is distributed under ISC license

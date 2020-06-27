@@ -1,6 +1,6 @@
 {
   "name": "vuex-plugin-save-state",
-  "description": "A tiny Vuex plugin to automatically save and restore values in the browser's local storage.",
+  "description": "A tiny Vuex plugin to automatically save and restore the store state using the browser's local storage.",
   "version": "1.0.0",
   "license": "ISC",
   "repository": {

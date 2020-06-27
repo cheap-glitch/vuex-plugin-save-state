@@ -115,6 +115,10 @@ new Vuex.Store({
 });
 ```
 
+## Changelog
+
+You can find the full changelog [here](https://github.com/cheap-glitch/vuex-plugin-save-state/releases).
+
 
 ## License
 
