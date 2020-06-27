@@ -19,8 +19,7 @@
   ],
   "main": "index.js",
   "scripts": {
-    "lint": "eslint '**/*.js'",
-    "test": "mocha"
+    "lint": "eslint '**/*.js'"
   },
   "devDependencies": {
     "eslint": "^7.3.1",
