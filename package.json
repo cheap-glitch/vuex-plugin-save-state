@@ -1,0 +1,30 @@
+{
+  "name": "vuex-plugin-save-state",
+  "description": "A tiny Vuex plugin to automatically save and restore values in the browser's local storage.",
+  "version": "1.0.0",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cheap-glitch/vuex-plugin-save-state.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cheap-glitch/vuex-plugin-save-state/issues"
+  },
+  "author": "cheap glitch <cheap.glitch@gmail.com> (https://github.com/cheap-glitch)",
+  "homepage": "https://github.com/cheap-glitch/vuex-plugin-save-state#readme",
+  "keywords": [
+    "vuex",
+    "vuex-plugin",
+    "local-storage"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint '**/*.js'",
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "eslint": "^7.3.1",
+    "eslint-plugin-smarter-tabs": "^1.1.1",
+    "mocha": "^8.0.1"
+  }
+}
