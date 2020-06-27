@@ -4,8 +4,8 @@
 
 This plugin  allows you to  automatically save the state  of your Vuex  store on
 every mutation, and to have it restored on page load. Features:
- * 📜 define the state properties and their options in a single object
- * ✅ provide default values & optionally validate the saved data
+ * 📑 define the state properties and their options in a single place
+ * 🔧 provide default values & optionally validate the saved data
  * 📦 works with store modules
 
 ## Installation
@@ -26,19 +26,21 @@ demonstrating the usage of all the options recognized by the plugin:
 ```javascript
 const model = {
 	count: {
-		// The initial value of the prop
+		// The initial value of the property
 		default: 'user',
 
-		// Unnecessary if the option 'savedByDefault' is set to `true`
+		// Unnecessary if the plugin option 'savedByDefault' is set to `true`
 		saved: true,
 	},
 	username: {
 		default: 'anonymous',
 		saved: true,
 
-		// A function returning a boolean
-		// If it returns `false`, the stored value will be
-		// ignored and the default will be used
+		/**
+		 * A function returning a boolean
+		 * If it returns `false`, the stored value will be
+		 * ignored and the default will be used
+		 */
 		validator: v => (typeof v == 'string' && v.length <= 20)
 	},
 	ignoredProp: {
@@ -67,14 +69,14 @@ new Vuex.Store({
 			/**
 			 * The storage key for the state object.
 			 * You can use this to do basic versioning
-			 * on your store properties.
+			 * on your store state.
 			 *
 			 * Default value: 'vuex'
 			 */
 			namespace: 'myapp',
 
 			/**
-			 * Whether all store properties should be
+			 * Whether all state properties should be
 			 * saved by default or not.
 			 *
 			 * Default value: false
