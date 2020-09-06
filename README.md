@@ -89,7 +89,7 @@ new Vuex.Store({
 ```
 
 
-### Using with store modules
+### Usage with store modules
 
 ```javascript
 import moduleA from './moduleA'
