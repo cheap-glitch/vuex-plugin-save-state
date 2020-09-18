@@ -1,7 +1,7 @@
 {
   "name": "vuex-plugin-save-state",
   "description": "A tiny Vuex plugin to automatically save and restore the store state using the browser's local storage.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
     "lint": "eslint '**/*.js'"
   },
   "devDependencies": {
-    "eslint": "^7.8.1",
+    "eslint": "^7.9.0",
     "eslint-plugin-smarter-tabs": "^1.1.1",
     "mocha": "^8.1.3"
   }
