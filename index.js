@@ -24,16 +24,16 @@ export function saveStatePlugin(stateModel, options = {})
 	return function(store)
 	{
 		// Declare a function to check that a prop has been stored and that the stored value passes validation
-		const checkProp = (prop, storedValue) => storedValue
+		const checkProp = (prop, storedValue) => !!storedValue
 			&& (prop.saved === undefined ? options.savedByDefault : prop.saved)
 			&& (!prop.validator || prop.validator(storedValue));
 
 		// Get the stored state
 		let storedState = {};
-		try { storedState = JSON.parse(localStorage.getItem(options.namespace) || '{}'); } catch { storedState = {}; }
+		try { storedState = JSON.parse(localStorage.getItem(options.namespace) || '{}'); } catch (_) { storedState = {}; }
 
 		// Filter it and do a deep merge with the default state
-		store.replaceState(Object.fromEntries(stateModel)
+		store.replaceState(Object.fromEntries(Object.entries(stateModel)
 
 			// Remove non-object properties
 			.filter(([key, prop]) => !!prop && Object.prototype.toString.call(prop) !== '[object Object]')
@@ -41,12 +41,13 @@ export function saveStatePlugin(stateModel, options = {})
 			.map(([key, prop]) => (Object.keys(prop).every(k => ['saved', 'default', 'validator'].includes(k)))
 
 				// Add a store property
-				? [key, checkProp(prop, storedState[key]) ? storedState[key] : prop.default];
+				? [key, checkProp(prop, storedState[key]) ? storedState[key] : prop.default]
 
 				// Add a store module
 				: [key, Object.fromEntries(Object.entries(prop).map(
 					([subkey, subprop]) => [subkey, checkProp(subprop, (storedState[key] || {})[subkey]) ? storedState[key][subkey] : subprop.default]
-				))];
+				))]
+			)
 		));
 
 		// Subscribe to the store and save the state upon every mutation
