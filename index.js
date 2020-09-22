@@ -56,10 +56,10 @@ export function saveStatePlugin(stateModel, options = {})
 }
 
 /**
- * Take an object of the form [key]: {options}
- * and returns an object of the form [key]: <defaultValue>
+ * Take an object of the form [prop]: {options}
+ * and returns an object of the form [prop]: <defaultValue>
  */
 export function getVuexState(state)
 {
-	return Object.fromEntries(Object.entries(state).map(([key, value]) => [key, value.default || null]));
+	return Object.fromEntries(Object.entries(state).map(([prop, options]) => [prop, 'default' in options ? options.default : null]));
 }
