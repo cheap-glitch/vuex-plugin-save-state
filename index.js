@@ -10,8 +10,9 @@
  */
 
 const defaultOptions = {
-	namespace:      'vuex',
-	savedByDefault: false,
+	namespace:           'vuex',
+	savedByDefault:      false,
+	clearStorageOnError: false,
 };
 
 /**
@@ -29,8 +30,12 @@ export function saveStatePlugin(stateModel, options = {})
 			&& (!prop.validator || prop.validator(storedValue));
 
 		// Get the stored state
-		let storedState = {};
-		try { storedState = JSON.parse(localStorage.getItem(options.namespace) || '{}'); } catch (_) { storedState = {}; }
+		let storedState = localStorage.getItem(options.namespace);
+		if (storedState == null && options.clearStorageOnError)
+			localStorage.clear();
+
+		// Parse the stored state
+		try { storedState = JSON.parse(storedState || '{}'); } catch (_) { storedState = {}; }
 
 		// Filter it and do a deep merge with the default state
 		store.replaceState(Object.fromEntries(Object.entries(stateModel)
