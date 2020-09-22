@@ -72,17 +72,25 @@ new Vuex.Store({
 			 * You can use this to do basic versioning
 			 * on your store state.
 			 *
-			 * Default value: 'vuex'
+			 * Default: `vuex`
 			 */
-			namespace: 'myapp',
+			namespace: `myapp@${process.env.VUE_APP_VERSION}`,
 
 			/**
 			 * Whether all state properties should be
 			 * saved by default or not.
 			 *
-			 * Default value: false
+			 * Default: `false`
 			 */
 			 savedByDefault: true,
+
+			 /**
+			  * When set to `true`, will clear the local
+			  * storage if the namespace key isn't found
+			  *
+			  * Default: `false`
+			  */
+			 clearStorageOnError: process.env.NODE_ENV === 'production',
 		});
 	]
 });
