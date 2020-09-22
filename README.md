@@ -60,7 +60,7 @@ strip all the extra info from the model:
 ```javascript
 import { getVuexState, saveStatePlugin } from 'vuex-plugin-save-state'
 
-new Vuex.Store({
+new Vuex.Store(
 	state: getVuexState(model),
 
 	// getters, mutations et al.
@@ -68,9 +68,9 @@ new Vuex.Store({
 	plugins: [
 		saveStatePlugin(model, {
 			/**
-			 * The storage key for the state object.
+			 * The storage key for the state object
 			 * You can use this to do basic versioning
-			 * on your store state.
+			 * on your store state
 			 *
 			 * Default: `vuex`
 			 */
@@ -78,19 +78,19 @@ new Vuex.Store({
 
 			/**
 			 * Whether all state properties should be
-			 * saved by default or not.
+			 * saved by default or not
 			 *
 			 * Default: `false`
 			 */
-			 savedByDefault: true,
+			savedByDefault: true,
 
-			 /**
-			  * When set to `true`, will clear the local
-			  * storage if the namespace key isn't found
-			  *
-			  * Default: `false`
-			  */
-			 clearStorageOnError: process.env.NODE_ENV === 'production',
+			/**
+			 * When set to `true`, will clear the local
+			 * storage if the namespace key isn't found
+			 *
+			 * Default: `false`
+			 */
+			clearStorageOnError: process.env.NODE_ENV === 'production',
 		});
 	]
 });
