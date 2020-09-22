@@ -36,7 +36,7 @@ export function saveStatePlugin(stateModel, options = {})
 		store.replaceState(Object.fromEntries(Object.entries(stateModel)
 
 			// Remove non-object properties
-			.filter(([key, prop]) => !!prop && Object.prototype.toString.call(prop) !== '[object Object]')
+			.filter(([, prop]) => !!prop && Object.prototype.toString.call(prop) === '[object Object]')
 
 			.map(([key, prop]) => (Object.keys(prop).every(k => ['saved', 'default', 'validator'].includes(k)))
 
