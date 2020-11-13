@@ -22,8 +22,8 @@
     "lint": "eslint '**/*.js'"
   },
   "devDependencies": {
-    "eslint": "^7.9.0",
+    "eslint": "^7.13.0",
     "eslint-plugin-smarter-tabs": "^1.1.2",
-    "mocha": "^8.1.3"
+    "mocha": "^8.2.1"
   }
 }
