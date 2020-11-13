@@ -19,14 +19,13 @@
 	"extends": "eslint:recommended",
 
 	"rules": {
+    "brace-style":               ["warn", "1tbs", { "allowSingleLine": true }],
 		"no-mixed-spaces-and-tabs":  ["warn", "smart-tabs"],
 		"smarter-tabs/smarter-tabs": "warn"
 	},
 
 	"overrides": [{
 		"files": ["test/*.test.js"],
-		"env": {
-			"mocha": true
-		}
+		"env": { "mocha": true }
 	}]
 }
