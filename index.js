@@ -1,4 +1,3 @@
-
 /**
  * vuex-plugin-save-state
  *
@@ -18,7 +17,7 @@ const defaultOptions = {
 /**
  * Return a function to instantiate the Vuex plugin
  */
-export function saveStatePlugin(stateModel, options = {}) {
+function saveStatePlugin(stateModel, options = {}) {
 	options = { ...defaultOptions, ...(options || {})};
 
 	return function(store) {
@@ -62,6 +61,11 @@ export function saveStatePlugin(stateModel, options = {}) {
  * Take an object of the form [prop]: {options}
  * and returns an object of the form [prop]: <defaultValue>
  */
-export function getVuexState(state) {
+function getVuexState(state) {
 	return Object.fromEntries(Object.entries(state).map(([prop, options]) => [prop, 'default' in options ? options.default : null]));
 }
+
+module.exports = {
+	saveStatePlugin,
+	getVuexState,
+};
